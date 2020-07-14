@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="fondo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="533.0" prefWidth="945.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetario.InterfazPrincipal_Controlador">
+    <children>
+      <Accordion fx:id="categorias" prefWidth="269.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0" />
+      <TextField fx:id="titulo" layoutX="285.0" layoutY="50.0" prefHeight="25.0" prefWidth="424.0" promptText="Título" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="50.0" />
+      <ToolBar maxWidth="1.7976931348623157E308" prefHeight="35.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <items>
+            <HBox fx:id="barrabaja" spacing="5.0">
+               <children>
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#modificarReceta" text="Modificar" />
+                  <Button layoutX="14.0" layoutY="488.0" mnemonicParsing="false" onAction="#borrarReceta" text="Borrar" />
+               </children>
+               <padding>
+                  <Insets top="3.0" />
+               </padding>
+            </HBox>
+              <Button onAction="#limpiarFormulario" text="Limpiar" />
+            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#agregarReceta" text="Agregar" />
+            <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="58.0" />
+            <Label text="Apariencia:" />
+            <ComboBox fx:id="estilos" onAction="#cambiarApariencia" prefWidth="180.0" promptText="Seleccione apariencia..." />
+            <Button mnemonicParsing="false" onAction="#guardarPreferencias">
+               <graphic>
+                  <FontAwesomeIconView fill="#aeaeae" glyphName="GEAR" />
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <HTMLEditor fx:id="contenido" htmlText="&lt;html&gt;&lt;head&gt;&lt;style&gt;body {background-color: #ffe4ae;color: #AC3000;background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAA3NCSVQICAjb4U/gAAAA6lBMVEX1sB75tTL4syr7vjX7uh75uy3/yEH7vjz8vR76vTT0sSb7wzD0si79xUP7xDX9xh78xR73uTT7xT73th76uSr6ti/7vC78vTn3uCn7wx75wS/6vDj4sR77xUT5tS//xjf/yEf4uzj9xDH9vzb9vz77tSr6uy79ux76tx79vh74syf7uir9vjr6vTz9xTb+x0D9vS/3szD7tTL5tSr6sx7/xR72syn7uzb+x0T8vTr7tzD7uyr5uR79xj/3sR79vzz5syb7uR79vR7/ySb5sx73sy75ujX9xkT5tx73sx73tTD/vx7/xTD9xUQgKO7OAAAACXBIWXMAAAsSAAALEgHS3X78AAAAFnRFWHRDcmVhdGlvbiBUaW1lADA1LzI0LzE10DbJPgAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAMsSURBVEiJlZfrTttAEEYXJ+HSkkDc4LQxrZ0GQkut4EqgFAuQkFDD+z9R57a7s+uY0PMHWnH8fTO7KMZMp9M8zzPmc8w18duyF2Lye2TJ8mQyYWki7JLzvKqqzMmedvJeLM/nmFy/p3bs7pkpsS1Z1z5GuuSlxfYFfgEsH3cl58RgUNfdyccdtsjL5du1dyQPMFzv6j1yluGofeAKeI0wxHWLS8Lwmq+YH45PQignSXKpELnP8usz0oqOYhOLlRWQ5wqcn4dyErBFRsKZP2wPbst22E/thSUx4cKeNTvk1sJkz35f5zR0LIPHyUdHR71e75ChJ/TtoQMvhDjfHE3T4BfTIw4tbnaWn56e2nJjMQsiVq0dJJ8BTmzgHyD75Oi8QL4lRG4CsLZOjjormW5jEyMz/2Ss6J5yS7XlKqvCjFk42a1byS8vKtlJZ7K5cGHWVnK0MFmZJLujctPqnQUyH646ryg5PqtATloLW9BZycLw5x8At207s6qtCJPjfbVmDi+Zkjn84UHXDi6JvtcsP+4jd8xpDDeRzxP+HVp4zOOjkluPYFk+TXg9oYycbA8+5fIiByLJN8SW1vQ/vPkBdIYPBboRsQzJtvEXweqcnNlkZeO3Jk1TkE9PPLoDz1zzx/dCeYTMjD9Ipqqs5cFA5J7G3PDCrBz6d8FRLWJUshU0fS3LvD03uynLr2VZpindlQIZjUbFCoCvoyyrganlwnJAmI0F5VFB2sr6K44M1AMPJBPcng226SufEb8A5KL4Z4jMV+VmFcNvDDbZRUp5U3LplJNx4FHh5SBZtRZ5U+LKMBZm9qXpIUXBdwtS4S2xOogxflv7+ykJunZdq21fxPhtb6A2xkkmn9nSJsdT62QJ+hjDb4N/mWmM+UN0ymSvkfGY3swJJQ+Hwy6ZX+XQlexcg7W9vJrNvgMzL+vaVDyQ49ro8iPwm4lLht7Udotc8G0EQXWeKRlz8a0+XNiQ6F6YmrmqSLln5vO52XAy0yXzxFXrqDhZLmR72/TqrBf237U7L8nmTZmPire9tvPOCfhN2ZHs5PF4vc75b7AquCSALGwWy8G2XW8r/wORr5FnBZiDHgAAAABJRU5ErkJggg==&quot;);font-family: Cambria, serif;}&lt;/style&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="285.0" layoutY="87.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="90.0" />
+      <ComboBox fx:id="listaCategorias" layoutX="717.0" layoutY="50.0" prefHeight="25.0" prefWidth="215.0" promptText="Categoría..." AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="50.0" />
+      <HBox layoutX="763.0" layoutY="8.0" spacing="5.0" AnchorPane.rightAnchor="13.0">
+         <children>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#abrirMR" prefHeight="36.0" prefWidth="42.0" AnchorPane.rightAnchor="140.0">
+               <graphic>
+                  <FontAwesomeIconView fill="#909090" glyphName="FOLDER_OPEN" size="22" />
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" layoutX="908.0" layoutY="8.0" mnemonicParsing="false" onAction="#aparece" prefHeight="36.0" prefWidth="42.0" AnchorPane.rightAnchor="5.0">
+               <graphic>
+                  <FontAwesomeIconView fill="#909090" glyphName="REORDER" size="22" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox fx:id="barraalta" layoutX="757.0" layoutY="8.0" spacing="5.0" AnchorPane.rightAnchor="107.0">
+         <children>
+            <Button fx:id="verReceta" contentDisplay="CENTER" layoutX="898.0" layoutY="8.0" mnemonicParsing="false" onAction="#mostrarReceta" prefHeight="36.0" prefWidth="42.0" AnchorPane.rightAnchor="50.0">
+               <graphic>
+                  <FontAwesomeIconView fill="#909090" glyphName="EYE" size="22" />
+               </graphic>
+            </Button>
+            <Button contentDisplay="CENTER" layoutX="863.0" layoutY="8.0" mnemonicParsing="false" onAction="#guardarMR" prefHeight="36.0" prefWidth="42.0" AnchorPane.rightAnchor="95.0">
+               <graphic>
+                  <FontAwesomeIconView fill="#909090" glyphName="SAVE" size="22" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <Text layoutX="59.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mis Recetas">
+         <font>
+            <Font name="Lucida Sans Demibold" size="31.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ffa100" />
+                  <Stop color="#ff8400" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <DropShadow color="#0000005f" height="5.0" offsetX="2.0" offsetY="2.0" radius="2.0" width="5.0" />
+         </effect>
+      </Text>
+      <Box fx:id="cubo" depth="20.0" height="20.0" layoutX="26.0" layoutY="27.0" opacity="0.7" rotate="55.0" scaleX="1.5" scaleY="1.5" scaleZ="1.5" width="20.0">
+         <rotationAxis>
+            <Point3D y="1.0" z="1.0" />
+         </rotationAxis>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </Box>
+      <Pane fx:id="panelCategorias" layoutX="10.0" layoutY="10.0" prefWidth="200.0" style="-fx-background-color: -fx-background;" translateX="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#oculta" text="Cerrar" />
+                  <Label alignment="CENTER" layoutY="25.0" prefHeight="17.0" prefWidth="200.0" text="Categorías" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listadoCategorias" editable="true" layoutY="50.0" maxHeight="1.7976931348623157E308" onMouseClicked="#seleccionaCategoria" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </ListView>
+                  <TextField fx:id="textoCategoria" layoutX="6.0" layoutY="457.0" prefHeight="25.0" prefWidth="188.0" promptText="Seleccione o escriba..." />
+                  <HBox>
+                     <children>
+                        <Button layoutX="6.0" layoutY="494.0" mnemonicParsing="false" onAction="#agregarCategoria" text="Agregar" />
+                        <Button layoutX="71.0" layoutY="494.0" mnemonicParsing="false" onAction="#modificarCategoria" text="Modificar" />
+                        <Button layoutX="144.0" layoutY="494.0" mnemonicParsing="false" onAction="#borraCategoria" text="Borrar" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+    </children>
+</AnchorPane>

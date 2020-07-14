@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="fondo" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetario.VistaReceta_Controlador">
+   <children>
+      <ToolBar layoutX="519.0" layoutY="5.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <Button fx:id="cambiaRecetario" layoutX="560.0" layoutY="6.0" mnemonicParsing="false" onAction="#cerrarVista" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <graphic>
+                  <FontAwesomeIconView fill="#b5b5b5" glyphName="CLOSE" size="20" />
+               </graphic>
+            </Button>
+            <Button layoutX="573.0" layoutY="15.0" mnemonicParsing="false" onAction="#copiarReceta" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="5.0">
+               <graphic>
+                  <FontAwesomeIconView fill="#b5b5b5" glyphName="COPY" size="20" />
+               </graphic>
+            </Button>
+            <Button layoutX="46.0" layoutY="10.0" mnemonicParsing="false" onAction="#imprimirReceta">
+               <graphic>
+                  <FontAwesomeIconView fill="#b5b5b5" glyphName="PRINT" size="20" />
+               </graphic>
+            </Button>
+            <Button layoutX="86.0" layoutY="10.0" mnemonicParsing="false" onAction="#crearPDF">
+               <graphic>
+                  <FontAwesomeIconView fill="#b5b5b5" glyphName="FILE" size="20" />
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <VBox fx:id="copiable" prefHeight="553.0" prefWidth="603.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Label fx:id="categoria" alignment="CENTER" layoutY="18.0" maxWidth="1.7976931348623157E308" text="Categoría" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <HBox layoutX="-9.0" layoutY="30.999998092651367" maxWidth="1.7976931348623157E308">
+               <children>
+                  <FontAwesomeIconView fill="#ffc300" glyphName="STAR" layoutX="14.0" layoutY="65.0" size="30" wrappingWidth="30.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="40.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </FontAwesomeIconView>
+                  <Label fx:id="titulo" alignment="CENTER" layoutY="41.0" maxWidth="1.7976931348623157E308" text="Título" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Label>
+                  <FontAwesomeIconView fill="#ffc300" glyphName="STAR" layoutX="559.0" layoutY="65.0" size="30" wrappingWidth="30.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </FontAwesomeIconView>
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin>
+            </HBox>
+            <WebView fx:id="contenido" layoutY="78.0" minHeight="-1.0" minWidth="-1.0" prefHeight="510.0" prefWidth="600.0" stylesheets="@css/estiloweb.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
