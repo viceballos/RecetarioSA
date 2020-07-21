@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Clase para conectarse a una base de datos
+ * Clase para conectarse a una base de datos con cambios
  * @author Vi
  */
 public class Conexion {
